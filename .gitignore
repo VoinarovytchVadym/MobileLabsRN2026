@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# macOS
+.DS_Store
+
+# Android
+.android/
+build/
+.gradle/
+local.properties
+*.iml
+.idea/
+
+# iOS
+ios/Pods/
+ios/build/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace
+xcuserdata/
+.idea/
+
+# React Native packager
+.packager/
+
+# Expo
+.expo/
+.expo-shared/
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
