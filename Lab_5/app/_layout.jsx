@@ -1,12 +1,10 @@
-import { Stack, Redirect } from "expo-router";
-import { useAuth } from "../../context/AuthContext";
+import { Stack } from "expo-router";
+import { AuthProvider } from "../context/AuthContext";
 
-export default function AppLayout() {
-  const { isAuthenticated } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Redirect href="/login" />;
-  }
-
-  return <Stack screenOptions={{ headerShown: false }} />;
+export default function RootLayout() {
+  return (
+    <AuthProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </AuthProvider>
+  );
 }
