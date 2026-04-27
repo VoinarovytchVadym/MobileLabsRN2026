@@ -45,7 +45,7 @@ npm start
 На головному екрані реалізовано лічильник очок та інтерактивний об’єкт, який реагує на жести користувача.
 
 <p align="center">
-  <img src="Lab_3/screenshots/main.jpg" width="300"/>
+  <img src="screenshots/main.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -64,7 +64,7 @@ npm start
 - **PinchGestureHandler** — масштабування елемента для отримання бонусів.
 
 <p align="center">
-  <img src="Lab_3/screenshots/Apptest.jpg" width="300"/>
+  <img src="screenshots/Apptest.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -88,7 +88,7 @@ npm start
 - додати власне завдання.
 
 <p align="center">
-  <img src="Lab_3/screenshots/tasks.jpg" width="300"/>
+  <img src="screenshots/tasks.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -100,7 +100,7 @@ npm start
 На сторінці налаштувань реалізовано можливість зміни параметрів застосунку.
 
 <p align="center">
-  <img src="Lab_3/screenshots/settings.jpg" width="300"/>
+  <img src="screenshots/settings.jpg" width="300"/>
 </p>
 
 <p align="center">
