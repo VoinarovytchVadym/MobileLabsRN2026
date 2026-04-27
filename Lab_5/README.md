@@ -44,7 +44,7 @@ npm start
 
 У проєкті створено глобальний контекст авторизації, який зберігає стан користувача та містить функції для входу, реєстрації та виходу з акаунта.
 
-[AuthContext.jsx](Lab_5/context/AuthContext.jsx)
+[AuthContext.jsx](context/AuthContext.jsx)
 
 ### Екран входу
 
@@ -52,7 +52,7 @@ npm start
 Користувач може ввести email та пароль, після чого перейти до захищеної частини застосунку.
 
 <p align="center">
-  <img src="Lab_5/screenshots/login.jpg" width="300"/>
+  <img src="screenshots/login.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -65,7 +65,7 @@ npm start
 На екрані реалізовано поля для введення імені, email, пароля та підтвердження пароля.
 
 <p align="center">
-  <img src="Lab_5/screenshots/reg.jpg" width="300"/>
+  <img src="screenshots/reg.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@ npm start
 Список товарів формується на основі тестових даних, а кожен елемент містить зображення, назву, ціну та перехід на сторінку деталей.
 
 <p align="center">
-  <img src="Lab_5/screenshots/catalog.jpg" width="300"/>
+  <img src="screenshots/catalog.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -96,7 +96,7 @@ npm start
 За допомогою параметра `id` визначається обраний товар, після чого відображаються його зображення, назва, ціна та опис.
 
 <p align="center">
-  <img src="Lab_5/screenshots/details.jpg" width="300"/>
+  <img src="screenshots/details.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -108,7 +108,7 @@ npm start
 У проєкті реалізовано екран для обробки неіснуючих маршрутів.  
 На ньому відображається повідомлення про помилку та можливість повернення до головної сторінки.
 
-[+not-found.jsx](Lab_5/app/+not-found.jsx)
+[+not-found.jsx](app/+not-found.jsx)
 
 ## Структура проєкту
 
