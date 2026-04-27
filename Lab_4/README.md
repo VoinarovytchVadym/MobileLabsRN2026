@@ -46,7 +46,7 @@ npm start
 Користувач може бачити поточний шлях, список файлів і папок, переходити у вкладені папки та повертатися до попередньої директорії.
 
 <p align="center">
-  <img src="screenshots/navigation.jpg" width="300"/>
+  <img src="screenshots/main.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -59,7 +59,10 @@ npm start
 Для створення використовується модальне вікно з полями введення назви та початкового вмісту файлу.
 
 <p align="center">
-  <img src="screenshots/create.jpg" width="300"/>
+  <img src="screenshots/new.jpg" width="300"/>
+</p>
+<p align="center">
+  <img src="screenshots/newDir.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -72,7 +75,10 @@ npm start
 На цьому екрані відображається вміст файлу, який можна змінити та зберегти.
 
 <p align="center">
-  <img src="screenshots/editor.jpg" width="300"/>
+  <img src="screenshots/edit.jpg" width="300"/>
+</p>
+<p align="center">
+  <img src="screenshots/editOk.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -86,6 +92,9 @@ npm start
 
 <p align="center">
   <img src="screenshots/delete.jpg" width="300"/>
+</p>
+<p align="center">
+  <img src="screenshots/deleteOk.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -114,7 +123,7 @@ npm start
 - обсяг зайнятого простору.
 
 <p align="center">
-  <img src="screenshots/storage.jpg" width="300"/>
+  <img src="screenshots/main.jpg" width="300"/>
 </p>
 
 <p align="center">
@@ -127,6 +136,7 @@ npm start
 Lab_4/
 ├── assets/
 ├── components/
+├── screenshots/
 ├── screens/
 │   ├── HomeScreen.js
 │   ├── EditorScreen.js
