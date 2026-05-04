@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "lab_1",
+    "slug": "lab_1",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE"
+      },
+      "package": "com.ipz224_vvv.lab_1"
+    },
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "9c3950fa-1293-424c-9b69-661b180ea7fd"
+      }
+    }
+  }
+}
