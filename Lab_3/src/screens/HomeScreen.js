@@ -1,5 +1,6 @@
-import { View, Text, Animated } from "react-native";
+import { Animated } from "react-native";
 import { useRef, useState } from "react";
+import styled from "styled-components/native";
 import {
   GestureHandlerRootView,
   TapGestureHandler,
@@ -10,6 +11,62 @@ import {
   Directions,
   State,
 } from "react-native-gesture-handler";
+
+const Root = styled(GestureHandlerRootView)`
+  flex: 1;
+`;
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: ${({ $colors }) => $colors.background};
+`;
+
+const Card = styled.View`
+  width: 100%;
+  background-color: ${({ $colors }) => $colors.card};
+  border-radius: 20px;
+  padding: 20px;
+  border-width: 1px;
+  border-color: ${({ $colors }) => $colors.border};
+  align-items: center;
+`;
+
+const ScoreText = styled.Text`
+  font-size: 30px;
+  font-weight: 700;
+  color: ${({ $colors }) => $colors.text};
+  margin-bottom: 12px;
+`;
+
+const StatText = styled.Text`
+  color: ${({ $colors }) => $colors.secondaryText};
+`;
+
+const LastSwipeText = styled(StatText)`
+  margin-top: 10px;
+`;
+
+const LastPinchText = styled(StatText)`
+  margin-bottom: 24px;
+`;
+
+const Circle = styled(Animated.View)`
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  background-color: ${({ $colors }) => $colors.circle};
+  justify-content: center;
+  align-items: center;
+`;
+
+const CircleText = styled.Text`
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+`;
 
 export default function HomeScreen({
   count,
@@ -31,14 +88,11 @@ export default function HomeScreen({
   colors,
 }) {
   const doubleTapRef = useRef(null);
-
   const translateX = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(1)).current;
-
   const lastOffsetX = useRef(0);
   const lastOffsetY = useRef(0);
-
   const [lastSwipePoints, setLastSwipePoints] = useState(0);
   const [lastPinchBonus, setLastPinchBonus] = useState(0);
 
@@ -89,13 +143,10 @@ export default function HomeScreen({
     if (event.nativeEvent.oldState === State.ACTIVE) {
       lastOffsetX.current += event.nativeEvent.translationX;
       lastOffsetY.current += event.nativeEvent.translationY;
-
       translateX.setOffset(lastOffsetX.current);
       translateX.setValue(0);
-
       translateY.setOffset(lastOffsetY.current);
       translateY.setValue(0);
-
       setDragCount(1);
     }
   };
@@ -126,7 +177,7 @@ export default function HomeScreen({
   };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <Root>
       <LongPressGestureHandler
         minDurationMs={3000}
         onActivated={handleLongPress}
@@ -145,75 +196,33 @@ export default function HomeScreen({
                 direction={Directions.RIGHT}
                 onActivated={handleSwipeRight}
               >
-                <View
-                  style={{
-                    flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: 20,
-                    backgroundColor: colors.background,
-                  }}
-                >
-                  <View
-                    style={{
-                      width: "100%",
-                      backgroundColor: colors.card,
-                      borderRadius: 20,
-                      padding: 20,
-                      borderWidth: 1,
-                      borderColor: colors.border,
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: 30,
-                        fontWeight: "700",
-                        color: colors.text,
-                        marginBottom: 12,
-                      }}
-                    >
-                      Очки: {count}
-                    </Text>
+                <Container $colors={colors}>
+                  <Card $colors={colors}>
+                    <ScoreText $colors={colors}>Очки: {count}</ScoreText>
 
-                    <Text style={{ color: colors.secondaryText }}>
-                      Tap: {tapCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
+                    <StatText $colors={colors}>Tap: {tapCount}</StatText>
+                    <StatText $colors={colors}>
                       Double tap: {doubleTapCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
+                    </StatText>
+                    <StatText $colors={colors}>
                       Long press: {longPressCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
+                    </StatText>
+                    <StatText $colors={colors}>
                       Swipe left: {swipeLeftCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
+                    </StatText>
+                    <StatText $colors={colors}>
                       Swipe right: {swipeRightCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
-                      Drag: {dragCount}
-                    </Text>
-                    <Text style={{ color: colors.secondaryText }}>
-                      Pinch: {pinchCount}
-                    </Text>
+                    </StatText>
+                    <StatText $colors={colors}>Drag: {dragCount}</StatText>
+                    <StatText $colors={colors}>Pinch: {pinchCount}</StatText>
 
-                    <Text
-                      style={{
-                        color: colors.secondaryText,
-                        marginTop: 10,
-                      }}
-                    >
+                    <LastSwipeText $colors={colors}>
                       Останній свайп: +{lastSwipePoints}
-                    </Text>
-                    <Text
-                      style={{
-                        color: colors.secondaryText,
-                        marginBottom: 24,
-                      }}
-                    >
+                    </LastSwipeText>
+
+                    <LastPinchText $colors={colors}>
                       Останній pinch бонус: +{lastPinchBonus}
-                    </Text>
+                    </LastPinchText>
 
                     <PanGestureHandler
                       onGestureEvent={onPanGestureEvent}
@@ -223,40 +232,27 @@ export default function HomeScreen({
                         onGestureEvent={onPinchEvent}
                         onHandlerStateChange={onPinchStateChange}
                       >
-                        <Animated.View
+                        <Circle
+                          $colors={colors}
                           style={{
-                            width: 140,
-                            height: 140,
-                            borderRadius: 70,
-                            backgroundColor: colors.circle,
-                            justifyContent: "center",
-                            alignItems: "center",
                             transform: [
-                              { translateX: translateX },
-                              { translateY: translateY },
-                              { scale: scale },
+                              { translateX },
+                              { translateY },
+                              { scale },
                             ],
                           }}
                         >
-                          <Text
-                            style={{
-                              color: "#FFFFFF",
-                              fontSize: 18,
-                              fontWeight: "600",
-                            }}
-                          >
-                            Drag me
-                          </Text>
-                        </Animated.View>
+                          <CircleText>Drag me</CircleText>
+                        </Circle>
                       </PinchGestureHandler>
                     </PanGestureHandler>
-                  </View>
-                </View>
+                  </Card>
+                </Container>
               </FlingGestureHandler>
             </FlingGestureHandler>
           </TapGestureHandler>
         </TapGestureHandler>
       </LongPressGestureHandler>
-    </GestureHandlerRootView>
+    </Root>
   );
 }

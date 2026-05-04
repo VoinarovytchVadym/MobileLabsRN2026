@@ -1,5 +1,7 @@
 import "react-native-gesture-handler";
+
 import { useState } from "react";
+import styled from "styled-components/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
   NavigationContainer,
@@ -13,6 +15,10 @@ import TasksScreen from "./src/screens/TasksScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 
 const Tab = createBottomTabNavigator();
+
+const Root = styled(GestureHandlerRootView)`
+  flex: 1;
+`;
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -57,7 +63,7 @@ export default function App() {
       };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <Root>
       <NavigationContainer theme={isDarkTheme ? DarkTheme : DefaultTheme}>
         <Tab.Navigator
           screenOptions={{
@@ -124,6 +130,6 @@ export default function App() {
           </Tab.Screen>
         </Tab.Navigator>
       </NavigationContainer>
-    </GestureHandlerRootView>
+    </Root>
   );
 }

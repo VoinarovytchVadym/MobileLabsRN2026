@@ -1,4 +1,36 @@
-import { View, Text } from "react-native";
+import styled from "styled-components/native";
+
+const Container = styled.ScrollView`
+  flex: 1;
+  padding: 20px;
+  background-color: ${({ $colors }) => $colors.background};
+`;
+
+const TaskCard = styled.View`
+  background-color: ${({ $colors }) => $colors.card};
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-width: 1px;
+  border-color: ${({ $colors }) => $colors.border};
+`;
+
+const TaskTitle = styled.Text`
+  color: ${({ $colors }) => $colors.text};
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+`;
+
+const TaskDescription = styled.Text`
+  color: ${({ $colors }) => $colors.secondaryText};
+  margin-bottom: 6px;
+`;
+
+const TaskProgress = styled.Text`
+  color: ${({ $colors }) => $colors.text};
+  font-weight: 600;
+`;
 
 export default function TasksScreen({
   count,
@@ -75,55 +107,18 @@ export default function TasksScreen({
   ];
 
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: 20,
-        backgroundColor: colors.background,
-      }}
-    >
+    <Container $colors={colors}>
       {tasks.map((task, index) => (
-        <View
-          key={index}
-          style={{
-            backgroundColor: colors.card,
-            borderRadius: 16,
-            padding: 14,
-            marginBottom: 12,
-            borderWidth: 1,
-            borderColor: colors.border,
-          }}
-        >
-          <Text
-            style={{
-              color: colors.text,
-              fontSize: 16,
-              fontWeight: "700",
-              marginBottom: 6,
-            }}
-          >
+        <TaskCard key={index} $colors={colors}>
+          <TaskTitle $colors={colors}>
             {task.done ? "✅" : "❌"} {task.title}
-          </Text>
+          </TaskTitle>
 
-          <Text
-            style={{
-              color: colors.secondaryText,
-              marginBottom: 6,
-            }}
-          >
-            {task.description}
-          </Text>
+          <TaskDescription $colors={colors}>{task.description}</TaskDescription>
 
-          <Text
-            style={{
-              color: colors.text,
-              fontWeight: "600",
-            }}
-          >
-            Прогрес: {task.progress}
-          </Text>
-        </View>
+          <TaskProgress $colors={colors}>Прогрес: {task.progress}</TaskProgress>
+        </TaskCard>
       ))}
-    </View>
+    </Container>
   );
 }
